@@ -151,6 +151,8 @@
 
 - (SBIconModel*)model;
 
+- (SBIconViewMap*)homescreenIconViewMap;
+
 -(id)folderIconListAtIndex:(unsigned)index;
 -(id)rootIconListAtIndex:(int)index;
 -(int)currentFolderIconListIndex;

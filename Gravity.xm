@@ -389,7 +389,7 @@ GravityPushBehavior* pushBehaviorIcon;
     SBIconController* SHAREDSBIcon = [%c(SBIconController) sharedInstance];
 	SBRootIconListView* currentRootIconL = [SHAREDSBIcon hasOpenFolder]?[SHAREDSBIcon currentFolderIconList]:[SHAREDSBIcon currentRootIconList];
 	
-	SBIconView* iconVW = [[%c(SBIconViewMap) homescreenMap] iconViewForIcon:[currentRootIconL icons][0]];
+	SBIconView* iconVW = [[SHAREDSBIcon respondsToSelector:@selector(homescreenIconViewMap)]?[SHAREDSBIcon homescreenIconViewMap]:[%c(SBIconViewMap) homescreenMap] iconViewForIcon:[currentRootIconL icons][0]];
 	if ([iconVW respondsToSelector:@selector(_iconImageView)]) {
 		CGRect iconV = [iconVW _iconImageView].frame;
 		iconHeight = iconV.size.height;
@@ -417,7 +417,7 @@ GravityPushBehavior* pushBehaviorIcon;
 	NSArray* visibleIcons = [currentRootIconL icons];
 	for (id iconNow in visibleIcons) {
 		if(![iconNow isKindOfClass:%c(ANPlaceHolderIcon)]) {
-		SBIconView* iconV = [[%c(SBIconViewMap) homescreenMap] iconViewForIcon:iconNow];
+		SBIconView* iconV = [[SHAREDSBIcon respondsToSelector:@selector(homescreenIconViewMap)]?[SHAREDSBIcon homescreenIconViewMap]:[%c(SBIconViewMap) homescreenMap] iconViewForIcon:iconNow];
 		if(_UILegibilityView* label = (_UILegibilityView*)object_getIvar(iconV, class_getInstanceVariable(%c(SBIconView), "_labelView"))) {
 			label.hidden = gravityHideLabelIcon?YES:NO;
 		}
@@ -593,7 +593,7 @@ GravityPushBehavior* pushBehaviorIcon;
 	}
 	for (id iconNow in [currentRootIconL icons]) {
 		if(![iconNow isKindOfClass:%c(ANPlaceHolderIcon)]) {
-		UIView* iconV = [[%c(SBIconViewMap) homescreenMap] iconViewForIcon:iconNow];
+		UIView* iconV = [[SHAREDSBIcon respondsToSelector:@selector(homescreenIconViewMap)]?[SHAREDSBIcon homescreenIconViewMap]:[%c(SBIconViewMap) homescreenMap] iconViewForIcon:iconNow];
 		if(_UILegibilityView* label = (_UILegibilityView*)object_getIvar(iconV, class_getInstanceVariable(%c(SBIconView), "_labelView"))) {
 			label.hidden = gravityHideLabelIcon?YES:NO;
 		}
@@ -619,7 +619,7 @@ GravityPushBehavior* pushBehaviorIcon;
 	}
 	for (id iconNow in [currentRootIconL icons]) {
 		if(![iconNow isKindOfClass:%c(ANPlaceHolderIcon)]) {
-		UIView* iconV = [[%c(SBIconViewMap) homescreenMap] iconViewForIcon:iconNow];
+		UIView* iconV = [[SHAREDSBIcon respondsToSelector:@selector(homescreenIconViewMap)]?[SHAREDSBIcon homescreenIconViewMap]:[%c(SBIconViewMap) homescreenMap] iconViewForIcon:iconNow];
 		if(_UILegibilityView* label = (_UILegibilityView*)object_getIvar(iconV, class_getInstanceVariable(%c(SBIconView), "_labelView"))) {
 			label.hidden = gravityHideLabelIcon?YES:NO;
 		}
@@ -650,7 +650,7 @@ GravityPushBehavior* pushBehaviorIcon;
 	
 	CGFloat iconHeightDock;
 	CGFloat iconWidthDock;
-	SBIconView* iconVW = [[%c(SBIconViewMap) homescreenMap] iconViewForIcon:[currentRootIconL icons][0]];
+	SBIconView* iconVW = [[SHAREDSBIcon respondsToSelector:@selector(homescreenIconViewMap)]?[SHAREDSBIcon homescreenIconViewMap]:[%c(SBIconViewMap) homescreenMap] iconViewForIcon:[currentRootIconL icons][0]];
 	if ([iconVW respondsToSelector:@selector(_iconImageView)]) {
 		CGRect iconV = [iconVW _iconImageView].frame;
 		iconHeightDock = iconV.size.height;
@@ -692,7 +692,7 @@ GravityPushBehavior* pushBehaviorIcon;
 	
 	for (id iconNow in visibleIcons) {
 		if(![iconNow isKindOfClass:%c(ANPlaceHolderIcon)]) {
-		SBIconView* iconV = [[%c(SBIconViewMap) homescreenMap] iconViewForIcon:iconNow];
+		SBIconView* iconV = [[SHAREDSBIcon respondsToSelector:@selector(homescreenIconViewMap)]?[SHAREDSBIcon homescreenIconViewMap]:[%c(SBIconViewMap) homescreenMap] iconViewForIcon:iconNow];
 		if(_UILegibilityView* label = (_UILegibilityView*)object_getIvar(iconV, class_getInstanceVariable(%c(SBIconView), "_labelView"))) {
 			label.hidden = gravityHideLabelIcon?YES:NO;
 		}
